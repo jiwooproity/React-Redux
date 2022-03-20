@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import App from "./App";
-import { Test } from "./components/Test";
+import Test from "./components/Test";
 
 const initialState = {
   id: 1,
-  name: "name",
+  name: "good",
   number: 4,
 };
 

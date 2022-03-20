@@ -1,12 +1,33 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Connecting from "./Connecting";
 
-export const Test = () => {
-  const propsState = useSelector((state) => state);
+class Test extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div>
-      <span>{propsState.name}</span>
-    </div>
-  );
-};
+    this.state = {
+      data: "test",
+      number: 22,
+    };
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+  }
+
+  componentDidUpdate() {}
+
+  render() {
+    const { number } = this.state;
+    const { nickname } = this.props;
+
+    return (
+      <div>
+        <span>{nickname + " " + number}</span>
+      </div>
+    );
+  }
+}
+
+export default connect(Connecting.mapStateToProps)(Test);
