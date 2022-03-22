@@ -12,9 +12,7 @@ class Test extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(this.props);
-  }
+  componentDidMount() {}
 
   componentDidUpdate() {}
 

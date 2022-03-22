@@ -4,7 +4,12 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import App from "./App";
+import Connecting from "./components/Connecting";
+import Message from "./components/Message";
+import SelectBox from "./components/SelectBox";
 import Test from "./components/Test";
+import { Test2 } from "./components/Test2";
+import Timer from "./components/Timer";
 
 const initialState = {
   id: 1,
@@ -45,7 +50,12 @@ ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
         <App />
-        <Test />
+        <SelectBox />
+        <Connecting />
+        {/* <Test />
+        <Test2 name={"propsTest"} />
+        <Timer />
+        <Message /> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
