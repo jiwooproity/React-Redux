@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import App from "./App";
 import { Filter } from "./components/Filter";
+import SelectTable from "./components/SelectTable";
 
 const initialState = {
   id: 1,
@@ -44,14 +45,8 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
-        <Filter />
-        {/* <SelectBox />
-        <Connecting /> */}
-        {/* <Test />
-        <Test2 name={"propsTest"} />
-        <Timer />
-        <Message /> */}
+        {/* <App /> */}
+        <SelectTable />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
