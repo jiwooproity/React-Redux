@@ -3,9 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
-import App from "./App";
-import { Filter } from "./components/Filter";
-import SelectTable from "./components/SelectTable";
+import { DragAndDrop } from "./components/DragAndDrop";
 
 const initialState = {
   id: 1,
@@ -45,8 +43,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        {/* <App /> */}
-        <SelectTable />
+        <DragAndDrop />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
