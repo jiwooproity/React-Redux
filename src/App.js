@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import styled from "styled-components";
-const fs = require("fs");
 
 let spreadSheetsId = "1k5Muc1xM3_PP0musMihHJMEkYYarIVSKKERUriHBkV8";
 let API_TOKEN = "AIzaSyBiXVHWac0qqPbeW857yGxkeMr5OZ401kM";
@@ -97,16 +96,18 @@ const App = () => {
       <LanguageMenu>
         {_.map(languageArr, (language, index) => (
           <LanguageList key={index}>
-            <LanguageButton
-              href={jsonUrl}
-              id={fileName}
-              download={fileName}
-              onClick={() => getLanguage(language)}
-            >
+            <LanguageButton onClick={() => getLanguage(language)}>
               {language}
             </LanguageButton>
           </LanguageList>
         ))}
+        {jsonUrl !== "" && (
+          <LanguageList>
+            <LanguageButton href={jsonUrl} id={fileName} download={fileName}>
+              Download
+            </LanguageButton>
+          </LanguageList>
+        )}
       </LanguageMenu>
     </div>
   );
