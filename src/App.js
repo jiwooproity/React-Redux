@@ -12,6 +12,7 @@ const LanguageButton = styled.a`
   background-color: black;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 
   &:hover {
     color: yellow;
@@ -27,7 +28,7 @@ const LanguageList = styled.li`
   padding: 5px;
 `;
 
-const languageArr = ["Korean", "English"];
+const languageArr = ["Korean", "English", "Chinese", "Deutsch"];
 
 const App = () => {
   const [stringId, setStringId] = useState([]);
@@ -57,9 +58,9 @@ const App = () => {
       language = { ...language, [stringId[index][0]]: res[0] };
     });
 
-    let JsonUrl =
-      "data:application/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(language));
+    const charset = "data:application/json;charset=utf-8,";
+
+    let JsonUrl = charset + encodeURIComponent(JSON.stringify(language));
 
     setJsonUrl(JsonUrl);
   };
@@ -69,12 +70,20 @@ const App = () => {
 
     switch (language) {
       case "Korean":
-        range = "B2:B9";
-        setFileName("ko.js");
+        range = "B2:B999";
+        setFileName("ko.json");
         break;
       case "English":
-        range = "C2:C9";
-        setFileName("en.js");
+        range = "C2:C999";
+        setFileName("en.json");
+        break;
+      case "Chinese":
+        range = "D2:D999";
+        setFileName("zh.json");
+        break;
+      case "Deutsch":
+        range = "E2:E999";
+        setFileName("de.json");
         break;
       default:
         break;
@@ -89,6 +98,8 @@ const App = () => {
     };
 
     getSpreadData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
